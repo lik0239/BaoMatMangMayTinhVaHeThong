@@ -1,0 +1,27 @@
+test_tc01_signed_portal_request_known_beneficiary_is_allowed (tests.test_veriguard.VeriGuardTestCase.test_tc01_signed_portal_request_known_beneficiary_is_allowed) ... ok
+test_tc02_email_request_requires_step_up_then_succeeds (tests.test_veriguard.VeriGuardTestCase.test_tc02_email_request_requires_step_up_then_succeeds) ... ok
+test_tc03_real_ceo_high_risk_needs_oob_dual_approval_and_hold (tests.test_veriguard.VeriGuardTestCase.test_tc03_real_ceo_high_risk_needs_oob_dual_approval_and_hold) ... ok
+test_tc04_deepfake_that_looks_real_is_not_trusted (tests.test_veriguard.VeriGuardTestCase.test_tc04_deepfake_that_looks_real_is_not_trusted) ... ok
+test_tc05_attacker_cannot_answer_challenge_with_own_device (tests.test_veriguard.VeriGuardTestCase.test_tc05_attacker_cannot_answer_challenge_with_own_device) ... ok
+test_tc06_real_owner_declines_on_registered_device (tests.test_veriguard.VeriGuardTestCase.test_tc06_real_owner_declines_on_registered_device) ... ok
+test_tc07_callback_number_from_request_is_ignored (tests.test_veriguard.VeriGuardTestCase.test_tc07_callback_number_from_request_is_ignored) ... ok
+test_tc08_lookalike_sender_domains_are_flagged (tests.test_veriguard.VeriGuardTestCase.test_tc08_lookalike_sender_domains_are_flagged) ... ok
+test_tc09_email_failing_dmarc_is_flagged (tests.test_veriguard.VeriGuardTestCase.test_tc09_email_failing_dmarc_is_flagged) ... ok
+test_tc10_beneficiary_name_mismatch_is_flagged (tests.test_veriguard.VeriGuardTestCase.test_tc10_beneficiary_name_mismatch_is_flagged) ... ok
+test_tc11_unknown_requester_is_denied (tests.test_veriguard.VeriGuardTestCase.test_tc11_unknown_requester_is_denied) ... ok
+test_tc12_signed_request_modified_in_transit_is_denied (tests.test_veriguard.VeriGuardTestCase.test_tc12_signed_request_modified_in_transit_is_denied) ... ok
+test_tc13_changing_beneficiary_after_verification_blocks_execution (tests.test_veriguard.VeriGuardTestCase.test_tc13_changing_beneficiary_after_verification_blocks_execution) ... ok
+test_tc14_replayed_challenge_response_is_rejected (tests.test_veriguard.VeriGuardTestCase.test_tc14_replayed_challenge_response_is_rejected) ... ok
+test_tc15_expired_challenge_is_rejected (tests.test_veriguard.VeriGuardTestCase.test_tc15_expired_challenge_is_rejected) ... ok
+test_tc16_confirmation_for_one_request_cannot_be_reused_for_another (tests.test_veriguard.VeriGuardTestCase.test_tc16_confirmation_for_one_request_cannot_be_reused_for_another) ... ok
+test_tc17_compromised_ceo_mailbox_cannot_complete_transfer (tests.test_veriguard.VeriGuardTestCase.test_tc17_compromised_ceo_mailbox_cannot_complete_transfer) ... ok
+test_tc18_self_approval_and_unauthorized_approver_are_rejected (tests.test_veriguard.VeriGuardTestCase.test_tc18_self_approval_and_unauthorized_approver_are_rejected) ... ok
+test_tc19_approval_signed_for_old_amount_is_invalid (tests.test_veriguard.VeriGuardTestCase.test_tc19_approval_signed_for_old_amount_is_invalid) ... ok
+test_tc20_challenge_spam_is_limited_mfa_fatigue (tests.test_veriguard.VeriGuardTestCase.test_tc20_challenge_spam_is_limited_mfa_fatigue) ... ok
+test_tc21_tampered_audit_log_is_detected (tests.test_veriguard.VeriGuardTestCase.test_tc21_tampered_audit_log_is_detected) ... ok
+test_tc22_ed25519_matches_rfc8032_test_vector (tests.test_veriguard.VeriGuardTestCase.test_tc22_ed25519_matches_rfc8032_test_vector) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.334s
+
+OK

@@ -1,0 +1,75 @@
+
+==============================================================================
+ KỊCH BẢN 1 - Kế toán gửi đề nghị thanh toán hoá đơn qua email (bình thường)
+==============================================================================
+  PDP quyết định: STEP_UP  (điểm rủi ro 30)
+     +30 kênh email không chứng minh được danh tính (có thể deepfake / bị chiếm tài khoản)
+  Bước bắt buộc: oob_verification
+  Gửi thử thách tới thiết bị đã đăng ký (0901000003), hạn 10:20
+  [OK]   Anh Nam xác nhận trên app
+  [OK]   PEP thực thi lệnh chuyển tiền -> EXECUTED
+
+==============================================================================
+ KỊCH BẢN 2 - Video call deepfake 'Giám đốc' yêu cầu chuyển gấp 450 triệu
+==============================================================================
+  Bộ phát hiện deepfake báo 0.08 (trông thật) -> chỉ là tín hiệu phụ, không phải căn cứ để tin
+  PDP quyết định: DUAL_APPROVAL  (điểm rủi ro 95)
+     +30 kênh video_call không chứng minh được danh tính (có thể deepfake / bị chiếm tài khoản)
+     +25 tài khoản thụ hưởng 9704229988776655 chưa từng được xác minh
+     +15 số tiền lớn (>= 50,000,000)
+     +15 ngôn ngữ thúc ép / giữ bí mật: gap, bi mat, dung goi lai
+     +10 người gửi tự cung cấp số gọi lại (bị bỏ qua khi xác minh)
+  Bước bắt buộc: oob_verification, independent_approval, cooling_off_hold
+  Thử thách gửi tới số trong danh bạ 0901000001, KHÔNG gọi số 0987654321 kẻ gian đưa
+  [CHẶN] Kẻ gian ký bằng thiết bị của mình: chữ ký phản hồi không hợp lệ (không phải thiết bị đã đăng ký)
+  Giám đốc thật nhận thông báo trên điện thoại, bấm 'Không phải tôi'
+  [CHẶN] PEP thực thi lệnh chuyển tiền: giao dịch đã bị từ chối
+
+==============================================================================
+ KỊCH BẢN 3 - Đã xác minh xong, kẻ gian chen vào: 'Anh đổi số tài khoản nhận nhé'
+==============================================================================
+  PDP quyết định: STEP_UP  (điểm rủi ro 30)
+     +30 kênh email không chứng minh được danh tính (có thể deepfake / bị chiếm tài khoản)
+  Bước bắt buộc: oob_verification
+  [OK]   Xác nhận trên app
+  Tài khoản nhận bị đổi thành 9704229988776655 -> digest giao dịch thay đổi
+  [CHẶN] PEP thực thi lệnh chuyển tiền: nội dung giao dịch đã bị sửa sau khi tiếp nhận
+
+==============================================================================
+ KỊCH BẢN 4 - Giám đốc THẬT đặt cọc 300 triệu cho nhà cung cấp mới (rủi ro cao nhưng hợp lệ)
+==============================================================================
+  PDP quyết định: DUAL_APPROVAL  (điểm rủi ro 70)
+     +30 kênh video_call không chứng minh được danh tính (có thể deepfake / bị chiếm tài khoản)
+     +25 tài khoản thụ hưởng 9704229988776655 chưa từng được xác minh
+     +15 số tiền lớn (>= 50,000,000)
+  Bước bắt buộc: oob_verification, independent_approval, cooling_off_hold
+  [OK]   Giám đốc xác nhận trên app
+  [CHẶN] Giám đốc tự phê duyệt: người yêu cầu không được tự phê duyệt
+  [OK]   Kế toán trưởng phê duyệt độc lập
+  [CHẶN] Thực thi sau 10 phút: đang trong thời gian chờ an toàn tới 10:45
+  [OK]   Thực thi sau 31 phút -> EXECUTED
+
+==============================================================================
+ NHẬT KÝ KIỂM TOÁN (chuỗi HMAC)
+==============================================================================
+  #00 submitted              INV-1031  hash=80d648f01678…
+  #01 challenge_issued       INV-1031  hash=0d3588078242…
+  #02 challenge_passed       INV-1031  hash=1991af95b81c…
+  #03 executed               INV-1031  hash=18218edd084c…
+  #04 submitted              CEO-0715  hash=7cfe465c3073…
+  #05 challenge_issued       CEO-0715  hash=8cdb7be3adaf…
+  #06 challenge_failed       CEO-0715  hash=c1a88e90f28f…
+  #07 declined_by_owner      CEO-0715  hash=7444b661eb72…
+  #08 execute_blocked        CEO-0715  hash=f9a40b00e41a…
+  #09 submitted              INV-1032  hash=8cd5761de2be…
+  #10 challenge_issued       INV-1032  hash=4433e2211420…
+  #11 challenge_passed       INV-1032  hash=303ae2018827…
+  #12 execute_blocked        INV-1032  hash=f1f820cfca27…
+  #13 submitted              CEO-0716  hash=45324ee55f02…
+  #14 challenge_issued       CEO-0716  hash=b40b80ca8b08…
+  #15 challenge_passed       CEO-0716  hash=de9fddef32aa…
+  #16 approval_failed        CEO-0716  hash=f4c906d09e19…
+  #17 approved               CEO-0716  hash=a8db8536a7f1…
+  #18 execute_blocked        CEO-0716  hash=a27bbf7b6b88…
+  #19 executed               CEO-0716  hash=ee0ba1a92887…
+  Kiểm tra toàn vẹn chuỗi: (True, None)
